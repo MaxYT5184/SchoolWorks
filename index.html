@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free School Word Search</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      margin: 0;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h1 {
+      background-color: #222;
+      color: #fff;
+      padding: 20px;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      width: 80%;
+      max-width: 400px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1em;
+    }
+
+    .puzzle {
+      background-color: #fff;
+      border: 2px solid #444;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin: 20px auto;
+      padding: 15px;
+      max-width: 600px;
+    }
+
+    .puzzle img {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ccc;
+    }
+
+    .download-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+
+    .download-btn:hover {
+      background-color: #555;
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9em;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧠 Free School Word Search</h1>
+  <input type="text" id="searchInput" placeholder="Search puzzles by name or topic..." onkeyup="filterPuzzles()" />
+
+  <div id="puzzleList">
+    <!-- Puzzle 1 -->
+    <div class="puzzle" data-tags="code developer javascript">
+      <h2>Code Quest</h2>
+      <img src="wordsearch1.png" alt="Code Quest Word Search" />
+      <a href="wordsearch1.png" download class="download-btn">Download Puzzle</a>
+    </div>
+
+    <!-- Puzzle 2 (placeholder for future) -->
+    <div class="puzzle" data-tags="math numbers logic">
+      <h2>Math Master</h2>
+      <img src="wordsearch2.png" alt="Math Master Word Search" />
+      <a href="wordsearch2.png" download class="download-btn">Download Puzzle</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>© MaxYT5184 – All rights reserved</p>
+    <p><a href="https://maxyt5184.github.io/SchoolWorks/">Visit SchoolWorks</a></p>
+  </footer>
+
+  <script>
+    function filterPuzzles() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const puzzles = document.querySelectorAll('.puzzle');
+
+      puzzles.forEach(puzzle => {
+        const title = puzzle.querySelector('h2').textContent.toLowerCase();
+        const tags = puzzle.getAttribute('data-tags');
+        if (title.includes(input) || tags.includes(input)) {
+          puzzle.style.display = 'block';
+        } else {
+          puzzle.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
