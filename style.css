@@ -1,71 +1,131 @@
-body {
-  font-family: 'Segoe UI', sans-serif;
+/* 🌐 Global Reset & Modern Base */
+* {
   margin: 0;
-  background-color: #f5f5f5;
-  color: #333;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: 'Segoe UI', 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1f1c2c, #928dab);
+  color: #f5f5f5;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* 🏔️ Header */
 header {
-  background-color: #222;
+  background: linear-gradient(90deg, #141e30, #243b55);
   color: #fff;
-  padding: 20px;
+  padding: 40px 20px;
   text-align: center;
+  letter-spacing: 1.5px;
+  font-size: 1.8rem;
+  font-weight: 600;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+  border-bottom: 2px solid rgba(255,255,255,0.1);
 }
 
+/* 🌐 Navbar */
 .navbar {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 15px;
-  background-color: #333;
-  padding: 10px;
-  flex-wrap: wrap;
+  gap: 18px;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 14px 20px;
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  margin: 20px auto;
+  max-width: 1000px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
 }
 
 .navbar a {
   color: #fff;
   text-decoration: none;
-  font-weight: bold;
-  padding: 8px 12px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
+  font-weight: 500;
+  padding: 10px 18px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
 .navbar a:hover {
-  background-color: #555;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  box-shadow: 0 4px 15px rgba(255, 106, 0, 0.6);
+  transform: translateY(-2px);
 }
 
+/* 🔍 Search Bar */
 .navbar input {
-  padding: 8px;
-  border-radius: 4px;
+  padding: 10px 14px;
+  border-radius: 14px;
   border: none;
   font-size: 1em;
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+  transition: all 0.3s ease;
 }
 
+.navbar input:focus {
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+/* 📦 Main Layout */
 main {
-  padding: 20px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 20px;
+  padding: 40px 20px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: auto;
 }
 
+/* 🃏 Cards */
 .card {
-  background-color: #fff;
-  border: 2px solid #444;
-  padding: 15px;
-  width: 250px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease;
+  background: rgba(255, 255, 255, 0.08);
+  border: none;
+  border-radius: 20px;
+  padding: 20px;
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+  backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.15) 0%, transparent 70%);
+  transform: rotate(25deg);
+  transition: all 0.6s ease;
+}
+
+.card:hover::before {
+  transform: rotate(0deg) translate(30px, 30px);
 }
 
 .card:hover {
-  transform: scale(1.05);
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.35);
 }
 
+/* 🦶 Footer */
 footer {
-  background-color: #eee;
+  background: rgba(255, 255, 255, 0.08);
   text-align: center;
-  padding: 15px;
-  font-size: 0.9em;
+  padding: 20px;
+  font-size: 0.95em;
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 40px;
 }
