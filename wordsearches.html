@@ -7,33 +7,72 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Header -->
   <header>
     <h1>🧩 Word Search Puzzles</h1>
     <p class="tagline">Explore fun, printable puzzles created by MaxYT5184</p>
   </header>
 
+  <!-- Navbar -->
   <nav class="navbar">
     <a href="index.html">🏠 Home</a>
     <a href="creative.html">🎨 Creative Corner</a>
+    <input type="text" id="searchInput" placeholder="Search puzzles..." onkeyup="filterCards()" />
   </nav>
 
-  <main>
-    <div class="card">
-      <h2>Code Quest</h2>
+  <!-- Main Grid -->
+  <main id="cardContainer">
+    <!-- Card 1 -->
+    <div class="card" data-tags="code developer javascript">
       <img src="wordsearch1.png" alt="Code Quest Puzzle" />
-      <a href="wordsearch1.png" download class="download-btn">Download Puzzle</a>
+      <div class="card-content">
+        <h3>Code Quest</h3>
+        <p>Developer-themed word search puzzle.</p>
+        <a href="wordsearch1.png" download class="btn">⬇️ Download</a>
+        <a href="wordsearch1.png" target="_blank" class="btn">👁️ View</a>
+      </div>
     </div>
 
-    <div class="card">
-      <h2>Math Master</h2>
+    <!-- Card 2 -->
+    <div class="card" data-tags="math numbers geometry">
       <img src="wordsearch2.png" alt="Math Master Puzzle" />
-      <a href="wordsearch2.png" download class="download-btn">Download Puzzle</a>
+      <div class="card-content">
+        <h3>Math Master</h3>
+        <p>Math-themed word search puzzle.</p>
+        <a href="wordsearch2.png" download class="btn">⬇️ Download</a>
+        <a href="wordsearch2.png" target="_blank" class="btn">👁️ View</a>
+      </div>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer>
     <p>© MaxYT5184 – All rights reserved</p>
     <p><a href="https://maxyt5184.github.io/SchoolWorks/">Visit SchoolWorks</a></p>
   </footer>
+
+  <!-- Search Filter Script -->
+  <script>
+    function filterCards() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        const title = card.querySelector("h3").textContent.toLowerCase();
+        const description = card.querySelector("p").textContent.toLowerCase();
+        const tags = card.getAttribute("data-tags");
+
+        if (
+          title.includes(input) ||
+          description.includes(input) ||
+          (tags && tags.includes(input))
+        ) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+  </script>
 </body>
 </html>
