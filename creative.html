@@ -7,38 +7,72 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Header -->
   <header>
     <h1>🎨 Creative Corner</h1>
     <p class="tagline">Draw, write, and express your imagination with MaxYT5184</p>
   </header>
 
+  <!-- Navbar -->
   <nav class="navbar">
     <a href="index.html">🏠 Home</a>
     <a href="wordsearches.html">🧩 Word Searches</a>
+    <input type="text" id="searchInput" placeholder="Search drawings..." onkeyup="filterCards()" />
   </nav>
 
-  <main>
-    <div class="card">
-      <h2>Cute Drawwing Dog</h2>
+  <!-- Main Grid -->
+  <main id="cardContainer">
+    <!-- Card 1 -->
+    <div class="card" data-tags="dog cute drawing art">
       <img src="drawing1.png" alt="Cute Dog Drawing Page" />
-      <a href="drawing1.png" download class="download-btn">Download Drawing Page</a>
+      <div class="card-content">
+        <h3>Cute Drawing Dog</h3>
+        <p>A fun coloring page featuring a cute puppy.</p>
+        <a href="drawing1.png" download class="btn">⬇️ Download</a>
+        <a href="drawing1.png" target="_blank" class="btn">👁️ View</a>
+      </div>
     </div>
 
-    <div class="card">
-      <h2>Happy Brithday Card</h2>
-      <img src="drawing2.png" alt="Happy Brithday Drawing Page" />
-      <a href="drawing2.png" download class="download-btn">Download Drawing Page</a>
-    </div>
-
-    <div class="card">
-      <h2>📥 Submit Your Work</h2>
-      <p>In the future, you’ll be able to upload your own drawings and stories to be featured here!</p>
+    <!-- Card 2 -->
+    <div class="card" data-tags="birthday celebration card drawing">
+      <img src="drawing2.png" alt="Happy Birthday Drawing Page" />
+      <div class="card-content">
+        <h3>Happy Birthday Card</h3>
+        <p>A creative birthday-themed drawing page.</p>
+        <a href="drawing2.png" download class="btn">⬇️ Download</a>
+        <a href="drawing2.png" target="_blank" class="btn">👁️ View</a>
+      </div>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer>
     <p>© MaxYT5184 – All rights reserved</p>
     <p><a href="https://maxyt5184.github.io/SchoolWorks/">Visit SchoolWorks</a></p>
   </footer>
+
+  <!-- Search Filter Script -->
+  <script>
+    function filterCards() {
+      const input = document.getElementById('searchInput').value.toLowerCase();
+      const cards = document.querySelectorAll('.card');
+
+      cards.forEach(card => {
+        const title = card.querySelector("h3").textContent.toLowerCase();
+        const description = card.querySelector("p").textContent.toLowerCase();
+        const tags = card.getAttribute("data-tags");
+
+        if (
+          title.includes(input) ||
+          description.includes(input) ||
+          (tags && tags.includes(input))
+        ) {
+          card.style.display = "flex";
+        } else {
+          card.style.display = "none";
+        }
+      });
+    }
+  </script>
 </body>
 </html>
