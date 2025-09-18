@@ -7,11 +7,13 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <!-- Header -->
   <header>
     <h1>🎓 Free School Word Search</h1>
     <p class="tagline">Fun puzzles and creative learning by MaxYT5184</p>
   </header>
 
+  <!-- Navbar -->
   <nav class="navbar">
     <a href="index.html">🏠 Home</a>
     <a href="wordsearches.html">🧩 Word Searches</a>
@@ -19,24 +21,38 @@
     <input type="text" id="searchInput" placeholder="Search puzzles..." onkeyup="filterCards()" />
   </nav>
 
+  <!-- Main Cards -->
   <main id="cardContainer">
+    <!-- Card 1 -->
     <div class="card" data-tags="code developer javascript">
-      <h2>Code Quest</h2>
-      <p>Developer-themed word search</p>
-      <a href="wordsearch1.png" download>Download</a>
+      <img src="wordsearch1.png" alt="Code Quest Word Search">
+      <div class="card-content">
+        <h3>Code Quest</h3>
+        <p>Developer-themed word search</p>
+        <a href="wordsearch1.png" download class="btn">⬇️ Download</a>
+        <a href="wordsearch1.png" target="_blank" class="btn">👁️ View</a>
+      </div>
     </div>
+
+    <!-- Card 2 -->
     <div class="card" data-tags="math numbers geometry">
-      <h2>Math Master</h2>
-      <p>Math-themed word search</p>
-      <a href="wordsearch2.png" download>Download</a>
+      <img src="wordsearch2.png" alt="Math Master Word Search">
+      <div class="card-content">
+        <h3>Math Master</h3>
+        <p>Math-themed word search</p>
+        <a href="wordsearch2.png" download class="btn">⬇️ Download</a>
+        <a href="wordsearch2.png" target="_blank" class="btn">👁️ View</a>
+      </div>
     </div>
   </main>
 
+  <!-- Footer -->
   <footer>
     <p>© MaxYT5184 – All rights reserved</p>
     <p><a href="https://maxyt5184.github.io/SchoolWorks/">Visit SchoolWorks</a></p>
   </footer>
 
+  <!-- Search Filter Script -->
   <script>
     function filterCards() {
       const input = document.getElementById('searchInput').value.toLowerCase();
@@ -44,7 +60,7 @@
       cards.forEach(card => {
         const tags = card.getAttribute('data-tags');
         if (tags.includes(input)) {
-          card.style.display = 'block';
+          card.style.display = 'flex'; // keeps layout with flex/grid
         } else {
           card.style.display = 'none';
         }
